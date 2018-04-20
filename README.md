@@ -21,15 +21,15 @@ docker build .
 
 ## Usage
 
-You can mount your local workspace to path "/root" of container. So the directory ".emacs.d" will be generated to your local workspace:  
+You can mount your local workspace to path `/root` of container. So the directory `.emacs.d` will be generated to your local workspace:  
 ```
 docker run -it --rm -v /path/to/workspace:/root jinwuzhao/emacs
 ```
-If you need network proxy, use "-p" option:
+If you need network proxy, use `-p` option:
 ```
 docker run -it --rm -v /path/to/workspace:/root jinwuzhao/emacs -p
 ```
-Note this command will copy "sscfg.json" from local workspace to the path "/etc/shadowsocks/config.json" of container and copy "proxychains.conf" to "/etc/proxychains.conf". Then launch the ss-local(shadowsocks-libev client) with config "sscfg.json" and run emacs by proxychains4(proxychains-ng) with config "proxychains.conf".  
-This repository contains "sscfg.json" and "proxychains.conf" sample. You can modify them as you need.  
+Note this command will copy `sscfg.json` from local workspace to the path `/etc/shadowsocks/config.json` of container and copy `proxychains.conf` to `/etc/proxychains.conf`. Then launch the ss-local(shadowsocks-libev client) with config `sscfg.json` and run emacs by proxychains4(proxychains-ng) with config `proxychains.conf`.  
+This repository contains `sscfg.json` and `proxychains.conf` sample. You can modify them as you need.  
 
 
