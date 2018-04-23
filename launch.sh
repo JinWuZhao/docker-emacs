@@ -44,9 +44,9 @@ unset PCSCFG
 if test $[USEPROXY] -eq 0
 then
     unset USEPROXY
-    proxychains4 -q emacs
+    proxychains4 -q emacs /root
     kill `pgrep ss-local`
 else
     unset USEPROXY
-    emacs
+    emacs /root
 fi
