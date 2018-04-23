@@ -51,3 +51,4 @@ apk del make --purge
 apk del musl-dev --purge
 
 cd /root
+rm /root/install.sh
