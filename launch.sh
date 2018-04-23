@@ -2,7 +2,6 @@
 
 `test "$1" = '-p'`
 USEPROXY=$?
-echo "option: $1"
 
 # setup timezone
 TZFILE=/usr/share/zoneinfo/$TIMEZONE
