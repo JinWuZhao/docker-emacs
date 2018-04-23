@@ -9,6 +9,7 @@ apk --no-cache add git
 apk --no-cache add curl
 apk --no-cache add emacs
 apk --no-cache add openssh-client
+apk --no-cache add file
 apk --no-cache add gcc
 apk --no-cache add make
 apk --no-cache add musl-dev
