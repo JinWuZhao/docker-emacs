@@ -31,5 +31,17 @@ docker run -it --rm -v /path/to/workspace:/root jinwuzhao/emacs -p
 ```
 Note this command will copy `sscfg.json` from local workspace to the path `/etc/shadowsocks/config.json` of container and copy `proxychains.conf` to `/etc/proxychains.conf`. Then launch the ss-local(shadowsocks-libev client) with config `sscfg.json` and run emacs by proxychains4(proxychains-ng) with config `proxychains.conf`.  
 This repository contains `sscfg.json` and `proxychains.conf` sample. You can modify them as you need.  
-
-
+By default, the `detach-keys` of docker is `ctrl+p,ctrl+q` and it will conflicts with the move key of emacs. To solve this problem, you can modify the `detach-keys` to another value such as `ctrl+@,ctrl+q` before you create the container:  
+```
+docker run -it --detach-keys 'ctrl-@,ctrl-q' --rm -v /path/to/workspace:/root jinwuzhao/emacs
+``` 
+Alternatively youd can modify the docker config file at `~/.docker/config.json`:  
+```
+{
+	"auths": {},
+	"HttpHeaders": {
+		"User-Agent": ""
+	},
+	"detachKeys": "ctrl-@,ctrl-q"
+}
+```
