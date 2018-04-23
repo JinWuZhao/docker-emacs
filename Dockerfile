@@ -17,5 +17,6 @@ COPY ./launch.sh /usr/local/bin/launch.sh
 RUN chmod +x ./install.sh
 RUN chmod +x /usr/local/bin/launch.sh
 RUN ./install.sh
+RUN rm ./install.sh
 
 ENTRYPOINT ["launch.sh"]
