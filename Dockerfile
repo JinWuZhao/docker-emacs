@@ -11,11 +11,11 @@ WORKDIR /root
 
 VOLUME /root
 
-COPY ./install.sh .
-COPY ./launch.sh /usr/local/bin/launch.sh
+COPY ./install.sh /usr/local/bin/install_toolchains.sh
+COPY ./launch.sh /usr/local/bin/launch_emacs.sh
 
-RUN chmod +x ./install.sh
-RUN chmod +x /usr/local/bin/launch.sh
-RUN ./install.sh
+RUN chmod +x /usr/local/bin/install_toolchains.sh
+RUN chmod +x /usr/local/bin/launch_emacs.sh
+RUN install_toolchains.sh
 
-ENTRYPOINT ["launch.sh"]
+ENTRYPOINT ["launch_emacs.sh"]
