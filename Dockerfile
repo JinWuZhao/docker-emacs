@@ -16,4 +16,6 @@ RUN chmod +x /usr/local/bin/install_toolchains.sh
 RUN chmod +x /usr/local/bin/launch_emacs.sh
 RUN install_toolchains.sh
 
+VOLUME /root/Documents
+
 ENTRYPOINT ["launch_emacs.sh"]

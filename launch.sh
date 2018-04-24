@@ -16,7 +16,7 @@ unset TIMEZONE
 unset TZFILE
 
 # setup shadowsocks
-SSCFG=/root/sscfg.json
+SSCFG=/root/Documents/sscfg.json
 
 if [ -f "$SSCFG" ]
 then
@@ -32,7 +32,7 @@ fi
 unset SSCFG
 
 # setup proxychains
-PCSCFG=/root/proxychains.conf
+PCSCFG=/root/Documents/proxychains.conf
 
 if [ -f "$PCSCFG" ]
 then
@@ -44,9 +44,9 @@ unset PCSCFG
 if test $[USEPROXY] -eq 0
 then
     unset USEPROXY
-    proxychains4 -q emacs /root
+    proxychains4 -q emacs /root/Documents
     kill `pgrep ss-local`
 else
     unset USEPROXY
-    emacs /root
+    emacs /root/Documents
 fi

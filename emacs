@@ -8,4 +8,4 @@ fi
 
 WORKSPACE=`pwd`
 
-docker run -it --rm -v $WORKSPACE:/root jinwuzhao/emacs $2
+docker run -it --rm -v $WORKSPACE:/root/Documents jinwuzhao/emacs $2

@@ -50,4 +50,3 @@ apk del gcc --purge
 apk del make --purge
 apk del musl-dev --purge
 
-cd /root
