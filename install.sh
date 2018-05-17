@@ -13,6 +13,7 @@ apk --no-cache add file
 apk --no-cache add gcc
 apk --no-cache add make
 apk --no-cache add musl-dev
+apk --no-cache add the_silver_searcher
 
 echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories
 apk update
