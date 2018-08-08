@@ -34,16 +34,15 @@ echo "http://dl-cdn.alpinelinux.org/alpine/v3.8/community" >> /etc/apk/repositor
 apk update
 
 cd /mnt
-wget -c https://codeload.github.com/rofl0r/proxychains-ng/tar.gz/v4.13
-tar -xf proxychains-ng-4.13.tar.gz
-rm -rf proxychains-ng-4.13.tar.gz
-cd proxychains-ng-4.13
+git clone https://github.com/rofl0r/proxychains-ng.git
+cd proxychains-ng
+git checkout v4.13
 ./configure --prefix=/usr --sysconfdir=/etc
 make
 make install
 make install-config
 cd ..
-rm -rf proxychains-ng-4.13
+rm -rf proxychains-ng
 
 cd /mnt
 git clone https://github.com/BurntSushi/ripgrep
