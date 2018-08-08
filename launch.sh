@@ -24,6 +24,15 @@ then
     adduser -s /bin/bash -u $MY_UID -D $NAME
     passwd -u -d $NAME >/dev/null 2>&1
     echo "$NAME ALL=(ALL) ALL" >> /etc/sudoers
+    if [ -f "~/.emacs" ];
+    then
+        cp -f ~/.emacs /home/$NAME/
+    fi
+    if [ -f "~/.emacs.d" ];
+    then
+        cp -rf ~/.emacs.d /home/$NAME/
+    fi
+    chown -R "$NAME:$NAME" /home/$NAME
 fi
 unset MY_UID
 su -c 'ln -s /mnt/share/Documents ~/' $NAME
