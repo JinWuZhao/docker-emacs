@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.8
 
 ENV TERM=xterm-256color \
     LANG=en_US.UTF-8 \
@@ -16,6 +16,6 @@ RUN chmod +x /usr/local/bin/install_toolchains.sh
 RUN chmod +x /usr/local/bin/launch_emacs.sh
 RUN install_toolchains.sh
 
-VOLUME /root/Documents
+VOLUME ["/root/Documents","/root/Download"]
 
 ENTRYPOINT ["launch_emacs.sh"]
