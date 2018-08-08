@@ -1,12 +1,11 @@
 #!/bin/bash
 
-`test "$1" = '-p'`
-USEPROXY=$?
+USEPROXY=$1
 
 # setup timezone
 TZFILE=/usr/share/zoneinfo/$TIMEZONE
 
-if [ -f "$TZFILE" ]
+if [ -f "$TZFILE" ];
 then
     cp -f $TZFILE /etc/localtime
     echo $TIMEZONE > /etc/timezone
@@ -16,7 +15,7 @@ unset TIMEZONE
 unset TZFILE
 
 # setup user
-NAME=`whoami`
+NAME=root
 MY_UID=`ls -nd /mnt/share/Documents | awk '{print $3}'`
 if [ "$MY_UID" != `id -u` ];
 then
@@ -24,13 +23,13 @@ then
     adduser -s /bin/bash -u $MY_UID -D $NAME
     passwd -u -d $NAME >/dev/null 2>&1
     echo "$NAME ALL=(ALL) ALL" >> /etc/sudoers
-    if [ -f "~/.emacs" ];
+    if [ -f "/root/.emacs" ];
     then
-        cp -f ~/.emacs /home/$NAME/
+        cp -f /root/.emacs /home/$NAME/
     fi
-    if [ -f "~/.emacs.d" ];
+    if [ -f "/root/.emacs.d" ];
     then
-        cp -rf ~/.emacs.d /home/$NAME/
+        cp -rf /root/.emacs.d /home/$NAME/
     fi
     chown -R "$NAME:$NAME" /home/$NAME
 fi
@@ -41,13 +40,13 @@ su -c 'ln -s /mnt/share/Download ~/' $NAME
 # setup shadowsocks
 SSCFG=/mnt/share/Download/sscfg.json
 
-if [ -f "$SSCFG" ]
+if [ -f "$SSCFG" ];
 then
     mkdir -p /etc/shadowsocks
     cp -f $SSCFG /etc/shadowsocks/config.json
 fi
 
-if test $[USEPROXY] -eq 0
+if [ "$USEPROXY" == '-p' ];
 then
     ss-local -c /etc/shadowsocks/config.json &
 fi
@@ -57,14 +56,14 @@ unset SSCFG
 # setup proxychains
 PCSCFG=/mnt/share/Download/proxychains.conf
 
-if [ -f "$PCSCFG" ]
+if [ -f "$PCSCFG" ];
 then
     cp -f $PCSCFG /etc/proxychains.conf
 fi
 
 unset PCSCFG
 
-if test $[USEPROXY] -eq 0
+if [ "$USEPROXY" == '-p' ];
 then
     unset USEPROXY
     su -c 'proxychains4 -q emacs ~/Documents' $NAME
