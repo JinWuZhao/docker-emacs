@@ -54,3 +54,4 @@ rm -rf ripgrep
 
 apk del cargo --purge
 apk del rust --purge
+rm -rf ~/.cargo
