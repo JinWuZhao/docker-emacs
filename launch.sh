@@ -15,8 +15,16 @@ fi
 unset TIMEZONE
 unset TZFILE
 
+# setup user
+MY_UID=`ls -nd /home/share | awk '{print $3}'`
+NAME='me'
+adduser -s /bin/bash -u $MY_UID -D $NAME
+passwd -u -d $NAME
+echo "$NAME ALL=(ALL) ALL" >> /etc/sudoers
+unset MY_UID
+
 # setup shadowsocks
-SSCFG=/root/Documents/sscfg.json
+SSCFG=/root/Download/sscfg.json
 
 if [ -f "$SSCFG" ]
 then
@@ -32,7 +40,7 @@ fi
 unset SSCFG
 
 # setup proxychains
-PCSCFG=/root/Documents/proxychains.conf
+PCSCFG=/root/Download/proxychains.conf
 
 if [ -f "$PCSCFG" ]
 then
@@ -44,9 +52,9 @@ unset PCSCFG
 if test $[USEPROXY] -eq 0
 then
     unset USEPROXY
-    proxychains4 -q emacs /root/Documents
+    su -c 'proxychains4 -q emacs /root/Documents' $NAME
     kill `pgrep ss-local`
 else
     unset USEPROXY
-    emacs /root/Documents
+    su -c 'emacs /root/Documents' $NAME
 fi
