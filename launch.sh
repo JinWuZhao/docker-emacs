@@ -22,7 +22,7 @@ if [ "$MY_UID" != `id -u` ];
 then
     NAME='me'
     adduser -s /bin/bash -u $MY_UID -D $NAME
-    passwd -u -d $NAME > /dev/null
+    passwd -u -d $NAME >/dev/null 2>&1
     echo "$NAME ALL=(ALL) ALL" >> /etc/sudoers
 fi
 unset MY_UID
