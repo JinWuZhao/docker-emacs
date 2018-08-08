@@ -16,16 +16,22 @@ unset TIMEZONE
 unset TZFILE
 
 # setup user
+HOME_DIR=$HOME
+NAME=`whoami`
 MY_UID=`ls -nd /mnt/share/Documents | awk '{print $3}'`
-NAME='me'
-adduser -s /bin/bash -u $MY_UID -D $NAME
-passwd -u -d $NAME
-echo "$NAME ALL=(ALL) ALL" >> /etc/sudoers
+if [ "$MY_UID" != `id -u` ];
+then
+    NAME='me'
+    HOME_DIR=/home/$NAME
+    adduser -s /bin/bash -u $MY_UID -D $NAME
+    passwd -u -d $NAME
+    echo "$NAME ALL=(ALL) ALL" >> /etc/sudoers
+fi
 unset MY_UID
-ln -s /mnt/share/Documents /home/$NAME/
-chown $NAME:$NAME /home/$NAME/Documents
-ln -s /mnt/share/Download /home/$NAME/
-chown $NAME:$NAME /home/$NAME/Download
+ln -s /mnt/share/Documents $HOME_DIR/
+chown $NAME:$NAME $HOME_DIR/Documents
+ln -s /mnt/share/Download $HOME_DIR/
+chown $NAME:$NAME $HOME_DIR/Download
 
 # setup shadowsocks
 SSCFG=/mnt/share/Download/sscfg.json
