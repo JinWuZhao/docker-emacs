@@ -27,7 +27,7 @@ then
     then
         cp -f /root/.emacs /home/$NAME/
     fi
-    if [ -f "/root/.emacs.d" ];
+    if [ -d "/root/.emacs.d" ];
     then
         cp -rf /root/.emacs.d /home/$NAME/
     fi
