@@ -66,9 +66,9 @@ unset PCSCFG
 if [ "$USEPROXY" == '-p' ];
 then
     unset USEPROXY
-    su -c 'proxychains4 -q emacs ~/Documents' $NAME
+    su -c 'cd ~/Documents && proxychains4 -q emacs .' $NAME
     kill `pgrep ss-local`
 else
     unset USEPROXY
-    su -c 'emacs ~/Documents' $NAME
+    su -c 'cd ~/Documents && emacs .' $NAME
 fi
