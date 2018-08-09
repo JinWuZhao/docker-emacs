@@ -1,5 +1,7 @@
 # Emacs Docker Image
 
+[![Build Status](https://travis-ci.org/JinWuZhao/docker-emacs.svg?branch=master)](https://travis-ci.org/JinWuZhao/docker-emacs)
+
 ## Introduction
 
 This image is based on [Apache Alpine Linux](https://hub.docker.com/_/alpine/). The alpine image is so lite that it's size is less than 5MB. So I use this image as base.  
