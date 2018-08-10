@@ -7,11 +7,11 @@ then
 fi
 
 WORKSPACE=`pwd`
-DOWNLOAD='' # some of your useful files
+CONFIGS='' # some of your useful files
 
-if [ -d "$DOWNLOAD" ];
+if [ -d "$CONFIGS" ];
 then
-    docker run -it --rm -v $WORKSPACE:/mnt/share/Documents -v $DOWNLOAD:/mnt/share/Download jinwuzhao/emacs $2
+    docker run -it --rm -v $WORKSPACE:/mnt/share/Documents -v $CONFIGS:/mnt/share/configs jinwuzhao/emacs $2
 else
     docker run -it --rm -v $WORKSPACE:/mnt/share/Documents jinwuzhao/emacs $2
 fi
