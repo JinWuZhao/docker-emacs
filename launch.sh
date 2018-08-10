@@ -35,10 +35,11 @@ then
 fi
 unset MY_UID
 su -c 'ln -s /mnt/share/Documents ~/' $NAME
-su -c 'ln -s /mnt/share/Download ~/' $NAME
+
+CONFDIR=/mnt/share/configs
 
 # setup shadowsocks
-SSCFG=/mnt/share/Download/sscfg.json
+SSCFG=$CONFDIR/sscfg.json
 
 if [ -f "$SSCFG" ];
 then
@@ -54,7 +55,7 @@ fi
 unset SSCFG
 
 # setup proxychains
-PCSCFG=/mnt/share/Download/proxychains.conf
+PCSCFG=$CONFDIR/proxychains.conf
 
 if [ -f "$PCSCFG" ];
 then
@@ -62,6 +63,13 @@ then
 fi
 
 unset PCSCFG
+
+if [ -f "$CONFDIR/setup.sh" ];
+then
+    bash -euxo pipefail $CONFDIR/setup.sh
+fi
+
+unset CONFDIR
 
 if [ "$USEPROXY" == '-p' ];
 then

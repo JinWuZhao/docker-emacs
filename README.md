@@ -29,7 +29,7 @@ docker run -it --rm -v /path/to/workspace:/mnt/share/Documents jinwuzhao/emacs
 ```
 If you need network proxy, use `-p` option:
 ```
-docker run -it --rm -v /path/to/workspace:/mnt/share/Documents -v /path/to/config:/mnt/share/Download jinwuzhao/emacs -p
+docker run -it --rm -v /path/to/workspace:/mnt/share/Documents -v /path/to/config:/mnt/share/configs jinwuzhao/emacs -p
 ```
 Note this command will copy `sscfg.json` from local config directory to the path `/etc/shadowsocks/config.json` of container and copy `proxychains.conf` to `/etc/proxychains.conf`. Then launch the ss-local(shadowsocks-libev client) with config `sscfg.json` and run emacs by proxychains4(proxychains-ng) with config `proxychains.conf`.  
 This repository contains `sscfg.json` and `proxychains.conf` sample. You can modify them as you need.  
