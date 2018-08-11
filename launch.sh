@@ -22,7 +22,7 @@ then
     NAME='me'
     adduser -s /bin/bash -u $MY_UID -D $NAME
     passwd -u -d $NAME >/dev/null 2>&1
-    echo "$NAME ALL=(ALL) ALL" >> /etc/sudoers
+    echo "$NAME ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
     if [ -f "/root/.emacs" ];
     then
         cp -f /root/.emacs /home/$NAME/
@@ -66,10 +66,13 @@ unset PCSCFG
 
 if [ -f "$CONFDIR/setup.sh" ];
 then
+    cd $CONFDIR
     bash -euxo pipefail $CONFDIR/setup.sh
 fi
 
 unset CONFDIR
+
+su -c 'cd ~/Documents && if [ -f "./.setup.sh" ]; then bash -euxo pipefail ./.setup.sh; fi' $NAME
 
 if [ "$USEPROXY" == '-p' ];
 then
