@@ -67,12 +67,12 @@ unset PCSCFG
 if [ -f "$CONFDIR/setup.sh" ];
 then
     cd $CONFDIR
-    bash -euxo pipefail $CONFDIR/setup.sh
+    bash -euo pipefail $CONFDIR/setup.sh
 fi
 
 unset CONFDIR
 
-su -c 'cd ~/Documents && if [ -f "./.setup.sh" ]; then bash -euxo pipefail ./.setup.sh; fi' $NAME
+su -c 'cd ~/Documents && if [ -f "./.setup.sh" ]; then bash -euo pipefail ./.setup.sh; fi' $NAME
 
 if [ "$USEPROXY" == '-p' ];
 then
