@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "running launch.sh $@"
+
 if [ $1 == '-p' ];
 then
     ss-local -c /etc/shadowsocks/config.json &
