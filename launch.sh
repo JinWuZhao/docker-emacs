@@ -46,7 +46,7 @@ su -c 'cd ~/Documents && if [ -f "./.setup.sh" ]; then bash -euo pipefail ./.set
 
 if [ -f "$CONFDIR/launch.sh" ];
 then
-    su -c "cd ~/Documents && $CONFDIR/launch.sh" $NAME
+    su -c "cd ~/Documents && bash -euo pipefail $CONFDIR/launch.sh" $NAME
 else
     su -c 'cd ~/Documents && emacs .' $NAME
 fi
