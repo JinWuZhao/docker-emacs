@@ -1,7 +1,5 @@
 #!/bin/bash
 
-USEPROXY=$1
-
 # setup timezone
 TZFILE=/usr/share/zoneinfo/$TIMEZONE
 
@@ -38,48 +36,17 @@ su -c 'ln -s /mnt/share/Documents ~/' $NAME
 
 CONFDIR=/mnt/share/configs
 
-# setup shadowsocks
-SSCFG=$CONFDIR/sscfg.json
-
-if [ -f "$SSCFG" ];
-then
-    mkdir -p /etc/shadowsocks
-    cp -f $SSCFG /etc/shadowsocks/config.json
-fi
-
-if [ "$USEPROXY" == '-p' ];
-then
-    ss-local -c /etc/shadowsocks/config.json &
-fi
-
-unset SSCFG
-
-# setup proxychains
-PCSCFG=$CONFDIR/proxychains.conf
-
-if [ -f "$PCSCFG" ];
-then
-    cp -f $PCSCFG /etc/proxychains.conf
-fi
-
-unset PCSCFG
-
 if [ -f "$CONFDIR/setup.sh" ];
 then
     cd $CONFDIR
     bash -euo pipefail $CONFDIR/setup.sh
 fi
 
-unset CONFDIR
-
 su -c 'cd ~/Documents && if [ -f "./.setup.sh" ]; then bash -euo pipefail ./.setup.sh; fi' $NAME
 
-if [ "$USEPROXY" == '-p' ];
+if [ -f "$CONFDIR/launch.sh" ];
 then
-    unset USEPROXY
-    su -c 'cd ~/Documents && proxychains4 -q emacs .' $NAME
-    kill `pgrep ss-local`
+    su -c "cd ~/Documents && $CONFDIR/launch.sh" $NAME
 else
-    unset USEPROXY
     su -c 'cd ~/Documents && emacs .' $NAME
 fi
