@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "running setup.sh"
+
 # setup shadowsocks
 SSCFG=./sscfg.json
 
