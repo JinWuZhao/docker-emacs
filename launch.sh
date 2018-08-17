@@ -32,7 +32,6 @@ then
     chown -R "$NAME:$NAME" /home/$NAME
 fi
 unset MY_UID
-su -c 'ln -s /mnt/share/Documents ~/' $NAME
 
 CONFDIR=/mnt/share/configs
 
@@ -42,11 +41,11 @@ then
     bash -euo pipefail $CONFDIR/setup.sh
 fi
 
-su -c 'cd ~/Documents && if [ -f "./.setup.sh" ]; then bash -euo pipefail ./.setup.sh; fi' $NAME
+su -c 'cd /mnt/share/Documents && if [ -f "./.setup.sh" ]; then bash -euo pipefail ./.setup.sh; fi' $NAME
 
 if [ -f "$CONFDIR/launch.sh" ];
 then
-    su -c "cd ~/Documents && bash -euo pipefail $CONFDIR/launch.sh $*" $NAME
+    su -c "cd /mnt/share/Documents && bash -euo pipefail $CONFDIR/launch.sh $*" $NAME
 else
-    su -c 'cd ~/Documents && emacs .' $NAME
+    su -c 'cd /mnt/share/Documents && emacs .' $NAME
 fi
