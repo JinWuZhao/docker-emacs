@@ -1,8 +1,6 @@
 # Emacs Docker Image
 
-[![Build Status](https://travis-ci.org/JinWuZhao/docker-emacs.svg?branch=master)](https://travis-ci.org/JinWuZhao/docker-emacs)  
-
-![GitHub release](https://img.shields.io/github/tag/JinWuZhao/docker-emacs.svg)  
+[![Build Status](https://travis-ci.org/JinWuZhao/docker-emacs.svg?branch=master)](https://travis-ci.org/JinWuZhao/docker-emacs) ![GitHub release](https://img.shields.io/github/tag/JinWuZhao/docker-emacs.svg)  
 
 ## Introduction
 
