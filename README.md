@@ -1,10 +1,12 @@
 # Emacs Docker Image
 
-[![Build Status](https://travis-ci.org/JinWuZhao/docker-emacs.svg?branch=master)](https://travis-ci.org/JinWuZhao/docker-emacs)
+[![Build Status](https://travis-ci.org/JinWuZhao/docker-emacs.svg?branch=master)](https://travis-ci.org/JinWuZhao/docker-emacs)  
+
+![GitHub release](https://img.shields.io/github/tag/JinWuZhao/docker-emacs.svg)  
 
 ## Introduction
 
-This image is based on [Apache Alpine Linux](https://hub.docker.com/_/alpine/). The alpine image is so lite that it's size is less than 5MB. So I use this image as base.  
+This image is based on [Alpine Linux](https://hub.docker.com/_/alpine/). The alpine image is so lite that it's size is less than 5MB. So I use this image as base.  
 This image contains these primary tools (except provided by alpine):
 - bash
 - git
@@ -18,7 +20,7 @@ This image contains these primary tools (except provided by alpine):
 
 Clone this repository to your disk. Go into the directory and run this command:  
 ```
-docker build .
+docker build -t jinwuzhao/emacs .
 ```
 
 ## Usage
