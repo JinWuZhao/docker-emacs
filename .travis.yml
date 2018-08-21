@@ -9,7 +9,7 @@ deploy:
   provider: script
   script: bash docker_push
   on:
-    branch: master
+    tags: true
 env:
   global:
   - secure: BcWgdmCeUSmRwyFTv73FQOFEfuCPGVy+r5vaZ94EytpDTjWIF1GGOi7/N9KyBzM7WRqd91g5te+1OW7f+cXmuWds1DKFJcBqh1Y9gRTNgU3VcST3QHkoqnGRvM+UcwbPQIaKXY4PAIAVxAqrVl/AWXAya33I8P3DsKcL/GdBkMmzBLLcHaaOhBIwcFzcQdrPKpXJj/VzQYZvyWWfhbdaVQmSpuYoG8ilcs6BSGSzVpsdqdHprDMhNCq88sdDSOMDQn6gwqIClEAqk6pp3HCtQfLTB2yDtHC4CrJsl8p+fH31TjAkriADTAkKyzbRLg2mpXAnBRFQDfuBxuj53JiyujZKr2HRlaMuaeKU+lDb8fkDNEzO6Fnrksp6E/XzQa+h5IzOSkyntT5KymLDFQqvq1IkR+ytkGAL2FIe66SKctdDQG3SUdTfXi/Ox1VVQ2Eyw3spAoWdcWd1ZdKwWAfh8PXDHW8P+Htpx+ImpMxKcxrNbjI/btJPm1KvkopMq6+wUD/mU2vMh7ANV+byG85TC2RehtPhUvTENtSciiGe+wCzL/sQZOKtf/d8UUV0igBRbsedBvC6xvMNnjzgxNNNuIgHDYkz6Mts3bxe1XM3yjda5WPzKfw2bU4gI/NYtU6jdUrnUUvR0zMQVC5rx/t7PH7Ff/GYi4EJkeNxm0Hcbl4=
