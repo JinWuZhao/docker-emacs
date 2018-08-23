@@ -25,6 +25,7 @@ apk --no-cache add udns
 apk --no-cache add rust
 apk --no-cache add cargo
 apk --no-cache add diffutils
+apk --no-cache add ca-certificates
 
 echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
 apk update
