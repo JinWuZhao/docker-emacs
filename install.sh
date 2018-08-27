@@ -49,6 +49,7 @@ rm -rf proxychains-ng
 cd /mnt
 git clone https://github.com/BurntSushi/ripgrep
 cd ripgrep
+git checkout 0.9.0
 cargo build --release
 mv ./target/release/rg /usr/bin/
 cd ..
