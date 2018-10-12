@@ -13,6 +13,7 @@ apk --no-cache add emacs
 apk --no-cache add openssh-client
 apk --no-cache add file
 apk --no-cache add gcc
+apk --no-cache add g++
 apk --no-cache add make
 apk --no-cache add musl-dev
 apk --no-cache add the_silver_searcher
@@ -49,7 +50,7 @@ rm -rf proxychains-ng
 cd /mnt
 git clone https://github.com/BurntSushi/ripgrep
 cd ripgrep
-git checkout 0.9.0
+git checkout 0.10.0
 cargo build --release
 mv ./target/release/rg /usr/bin/
 cd ..
