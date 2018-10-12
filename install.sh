@@ -23,14 +23,18 @@ apk --no-cache add libev
 apk --no-cache add libsodium
 apk --no-cache add pcre
 apk --no-cache add udns
-apk --no-cache add rust
-apk --no-cache add cargo
 apk --no-cache add diffutils
 apk --no-cache add ca-certificates
 
 echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
 apk update
 apk --no-cache add shadowsocks-libev
+
+
+echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
+apk update
+apk --no-cache add rust
+apk --no-cache add cargo
 
 echo "http://dl-cdn.alpinelinux.org/alpine/v3.8/main" > /etc/apk/repositories
 echo "http://dl-cdn.alpinelinux.org/alpine/v3.8/community" >> /etc/apk/repositories
