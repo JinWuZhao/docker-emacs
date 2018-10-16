@@ -1,4 +1,4 @@
-FROM alpine:3.8
+FROM archlinux/base:latest
 
 ENV TERM=xterm-256color \
     LANG=en_US.UTF-8 \

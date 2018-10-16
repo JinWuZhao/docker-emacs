@@ -3,7 +3,7 @@ language: bash
 services:
 - docker
 before_install:
-- docker pull alpine:3.8
+- docker pull archlinux/base:latest
 - docker build -t jinwuzhao/emacs .
 deploy:
   provider: script
