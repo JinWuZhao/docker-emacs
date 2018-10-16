@@ -18,3 +18,4 @@ pacman -S --noconfirm ripgrep
 pacman -S --noconfirm proxychains-ng
 
 pacman -Sc --noconfirm
+exit 0
