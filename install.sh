@@ -6,6 +6,7 @@ pacman -S --noconfirm tzdata
 pacman -S --noconfirm sudo
 pacman -S --noconfirm git
 pacman -S --noconfirm emacs
+pacman -S --noconfirm awk
 pacman -S --noconfirm openssh
 pacman -S --noconfirm file
 pacman -S --noconfirm gcc
