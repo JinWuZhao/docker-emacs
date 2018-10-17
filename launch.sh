@@ -18,7 +18,7 @@ MY_UID=`ls -nd /mnt/share/Documents | awk '{print $3}'`
 if [ "$MY_UID" != `id -u` ];
 then
     NAME='me'
-    useradd $NAME -s /bin/bash -u $MY_UID
+    useradd $NAME -s /bin/bash -u $MY_UID -m
     passwd -u -d $NAME >/dev/null 2>&1
     echo "$NAME ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
     if [ -f "/root/.emacs" ];
