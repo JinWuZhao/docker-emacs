@@ -43,13 +43,13 @@ Alternatively youd can modify the docker config file at `~/.docker/config.json`:
 	"detachKeys": "ctrl-^,ctrl-q"
 }
 ```
-If you work on Linux with X-Server environment and want to share clipboards between host and container, you can mount the path /tmp/.X11-unix and install emacs package named `xclip.el`:  
+If you work on Linux with X-Server environment and want to share clipboards between host and container, you can mount the path `/tmp/.X11-unix`, set `DISPLAY` environment variable and install emacs package named `xclip.el`:  
 ```
 # launch container
-docker run -it --rm -v /path/to/workspace:/mnt/share/Documents -v /tmp/.X11-unix:/tmp/.X11-unix jinwuzhao/emacs
+docker run -it --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v /path/to/workspace:/mnt/share/Documents jinwuzhao/emacs
 
 # install xclip.el
-M-x package-install xclip
+M-x package-install RET xclip
 M-x xclip-mode
 ```
 You may add `xclip-mode` into `.emacs` file and commit a layer on this image.
