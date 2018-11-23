@@ -24,6 +24,7 @@ apk --no-cache add libsodium
 apk --no-cache add pcre
 apk --no-cache add udns
 apk --no-cache add diffutils
+apk --no-cache add xclip
 
 echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
 apk update
