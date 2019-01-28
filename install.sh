@@ -17,5 +17,6 @@ pacman -S --noconfirm diffutils
 pacman -S --noconfirm shadowsocks-libev
 pacman -S --noconfirm ripgrep
 pacman -S --noconfirm proxychains-ng
+pacman -S --noconfirm xclip
 
 pacman -Scc --noconfirm
