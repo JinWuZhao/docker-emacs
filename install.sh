@@ -18,5 +18,6 @@ pacman -S --noconfirm shadowsocks-libev
 pacman -S --noconfirm ripgrep
 pacman -S --noconfirm proxychains-ng
 pacman -S --noconfirm xclip
+pacman -S --noconfirm ttf-dejavu
 
 pacman -Scc --noconfirm
