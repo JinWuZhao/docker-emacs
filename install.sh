@@ -19,5 +19,7 @@ pacman -S --noconfirm ripgrep
 pacman -S --noconfirm proxychains-ng
 pacman -S --noconfirm xclip
 pacman -S --noconfirm ttf-dejavu
+pacman -S --noconfirm adobe-source-han-sans-cn-fonts
+pacman -S --noconfirm adobe-source-han-sans-tw-fonts
 
 pacman -Scc --noconfirm
