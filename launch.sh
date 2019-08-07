@@ -18,7 +18,7 @@ MY_UID=`ls -nd /mnt/share/Documents | awk '{print $3}'`
 if [ "$MY_UID" != `id -u` ];
 then
     NAME='me'
-    adduser -s /bin/bash -u $MY_UID -D $NAME
+    useradd $NAME -s /bin/bash -u $MY_UID -m
     passwd -u -d $NAME >/dev/null 2>&1
     echo "$NAME ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
     if [ -f "/root/.emacs" ];
@@ -45,7 +45,11 @@ su -c 'cd /mnt/share/Documents && if [ -f "./.setup.sh" ]; then bash -euo pipefa
 
 if [ -f "$CONFDIR/launch.sh" ];
 then
-    su -c "cd /mnt/share/Documents && bash -euo pipefail $CONFDIR/launch.sh $*" $NAME
+    printf "#!/bin/bash\ncd /mnt/share/Documents && bash -euo pipefail $CONFDIR/launch.sh $*\n" > /tmp/run_emacs.sh
+    chmod +x /tmp/run_emacs.sh
+    runuser -u $NAME /tmp/run_emacs.sh
 else
-    su -c 'cd /mnt/share/Documents && emacs .' $NAME
+    printf "#!/bin/bash\ncd /mnt/share/Documents && emacs .\n" > /tmp/run_emacs.sh
+    chmod +x /tmp/run_emacs.sh
+    runuser -u $NAME /tmp/run_emacs.sh
 fi
