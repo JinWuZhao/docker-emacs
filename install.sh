@@ -1,5 +1,9 @@
 #!/bin/sh
 
+rm -fr /etc/pacman.d/gnupg
+pacman-key --init
+pacman-key --populate archlinux
+
 pacman -Syu --noconfirm
 
 pacman -S --noconfirm tzdata
