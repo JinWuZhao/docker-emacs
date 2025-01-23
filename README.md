@@ -4,8 +4,7 @@
 
 ## Introduction
 
-This image is based on [Archlinux](https://hub.docker.com/_/archlinux/).  
-This image contains these primary tools (except provided by alpine):
+This image is based on [Archlinux](https://hub.docker.com/_/archlinux/).It contains these primary tools (except provided by alpine):  
 - bash
 - git
 - curl
