@@ -20,6 +20,7 @@ pacman -S --disable-sandbox --noconfirm --needed base-devel
 useradd yay -s /bin/bash -u 50000 -m && passwd -u -d yay >/dev/null 2>&1 && echo 'yay ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers && su yay -s /bin/bash -c 'mkdir -p /tmp/yay-bin && git clone --depth=1 https://aur.archlinux.org/yay-bin.git /tmp/yay-bin && cd /tmp/yay-bin/ && makepkg -si --noconfirm'
 pacman -S --disable-sandbox --noconfirm emacs
 pacman -S --disable-sandbox --noconfirm awk
+pacman -S --disable-sandbox --noconfirm less
 pacman -S --disable-sandbox --noconfirm openssh
 pacman -S --disable-sandbox --noconfirm file
 pacman -S --disable-sandbox --noconfirm gcc
