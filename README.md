@@ -1,6 +1,6 @@
 # Emacs Docker Image
 
-![Build Status](https://github.com/JinWuZhao/docker-emacs/actions/workflows/docker-image.yml/badge.svg?branch=master) ![GitHub release](https://img.shields.io/github/tag/JinWuZhao/docker-emacs.svg)  
+![Build Status](https://github.com/JinWuZhao/docker-emacs/actions/workflows/docker-image.yml/badge.svg) ![GitHub release](https://img.shields.io/github/tag/JinWuZhao/docker-emacs.svg)  
 
 ## Introduction
 
