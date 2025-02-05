@@ -1,5 +1,7 @@
 #!/bin/sh
 
+CONFIGS='' # mount some of your useful scripts. eg: -v /path/to/configs:/mnt/share/configs
+
 if [ $# -gt 0 ];
 then
     WORKDIR=`echo $@ | awk '{print $NF}'`
@@ -14,7 +16,7 @@ else
 fi
 
 WORKSPACE=`pwd`
-CONFIGS='' # some of your useful files
+
 X11CFGS=''
 if [ "$DISPLAY" != '' ] && [ -d "/tmp/.X11-unix" ];
 then
@@ -22,10 +24,5 @@ then
     X11CFGS="-e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix"
 fi
 
-if [ -d "$CONFIGS" ];
-then
-    docker run -it --rm $X11CFGS -v $WORKSPACE:/mnt/share/Documents -v $CONFIGS:/mnt/share/configs jinwuzhao/emacs $@
-else
-    docker run -it --rm $X11CFGS -v $WORKSPACE:/mnt/share/Documents jinwuzhao/emacs $@
-fi
+docker run -it --rm $X11CFGS $CONFIGS -v $WORKSPACE:/mnt/share/Documents jinwuzhao/emacs $@
 

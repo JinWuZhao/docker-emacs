@@ -1,11 +1,9 @@
 {
-    "server":"host",
-    "server_port":8080,
+    "server": "host",
+    "server_port": 8080,
+    "password": "password",
+    "timeout": 600,
+    "method": "aes-256-gcm",
     "local_address": "127.0.0.1",
-    "local_port":1080,
-    "password":"password",
-    "timeout":300,
-    "method":"aes-256-cfb",
-    "fast_open": false,
-    "workers": 1
+    "local_port": 1080
 }

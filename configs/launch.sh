@@ -2,9 +2,17 @@
 
 echo "running launch.sh $@"
 
+# copy home files
+HOMEDIR=/mnt/share/configs/homedir
+
+if [ -d "$HOMEDIR" ];
+then
+    cp -rfT $HOMEDIR ~
+fi
+
 if [ $1 == '-p' ];
 then
-    ss-local -c /etc/shadowsocks/config.json &
+    sslocal -c /etc/shadowsocks/config.json &
     proxychains4 -q emacs .
     kill `pgrep ss-local`
 else
