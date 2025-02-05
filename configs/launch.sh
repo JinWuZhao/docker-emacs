@@ -14,7 +14,7 @@ if [ $1 == '-p' ];
 then
     sslocal -c /etc/shadowsocks/config.json &
     proxychains4 -q emacs .
-    kill `pgrep ss-local`
+    kill `pgrep sslocal`
 else
     emacs .
 fi
